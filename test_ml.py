@@ -42,7 +42,7 @@ def test_train_test_size():
     expected_train_size = 0.8
     expected_test_size = 0.2
     # Check if the training dataset has the expected size
-    assert train_dataset == expected_train_size, f"Expected training dataset size: {expected_train_size}, Actual size: {rain_dataset}"
+    assert train_dataset == expected_train_size, f"Expected training dataset size: {expected_train_size}, Actual size: {train_dataset}"
 
     # Check if the test dataset has the expected size
     assert test_dataset == expected_test_size, f"Expected test dataset size: {expected_test_size}, Actual size: {test_dataset}"
