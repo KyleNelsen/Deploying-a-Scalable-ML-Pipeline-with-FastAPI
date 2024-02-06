@@ -11,7 +11,7 @@ jobs:
             os: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
-      - uses: conda-incubator/setup-miniconda
+      - uses: conda-incubator/setup-miniconda@v2.2.1
         with:
           activate-environment: fastapi
           environment-file: environment.yml
