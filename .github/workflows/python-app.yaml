@@ -35,7 +35,7 @@ jobs:
       run: conda env create -f environment.yml
 
     - name: Initialize Conda
-      run: conda init
+      run: conda init fastapi
 
     - name: Activate Conda environment
       run: conda activate fastapi
