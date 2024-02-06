@@ -47,7 +47,7 @@ jobs:
         
     - name: Run Flake8
       run: |
-        flake8
+        conda run -n fastapi flake8
         
     - name: Run PyTest
       run: |
