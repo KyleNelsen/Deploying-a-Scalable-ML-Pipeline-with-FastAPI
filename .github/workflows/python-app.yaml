@@ -46,6 +46,7 @@ jobs:
 
     - name: Run PyTest
       run: |
+        conda activate fastapi
         pytest
       env:
         CI: true
