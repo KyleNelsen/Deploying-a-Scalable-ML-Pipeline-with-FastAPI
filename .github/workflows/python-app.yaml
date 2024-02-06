@@ -22,21 +22,40 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Initialize Conda
-      run: conda init bash
+    - name: Set up Anaconda
+      run: |
+        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+        bash miniconda.sh -b -p $HOME/miniconda
+        export PATH="$HOME/miniconda/bin:$PATH"
+        hash -r
+        conda config --set always_yes yes --set changeps1 no
+        conda update -q conda
 
     - name: Create Conda environment
       run: conda env create -f environment.yml
 
-    - name: Activate Conda environment
-      run: conda activate fastapi
+    - name: Initialize and Activate Conda environment
+      run: |
+        conda init bash
+        eval "$(conda shell.bash hook)"
+        conda activate fastapi
+
+    - name: Install dependencies
+      run: |
+        conda install pytest flake8
 
     - name: Run PyTest
       run: |
-        python -m pytest
+        conda init bash
+        eval "$(conda shell.bash hook)"
+        conda activate fastapi
+        pytest
       env:
         CI: true
 
     - name: Run Flake8
       run: |
-        python -m flake8
+        conda init bash
+        eval "$(conda shell.bash hook)"
+        conda activate fastapi
+        flake8
