@@ -7,29 +7,26 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
+      fail-fast: false
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v3
+    - uses: actions/checkout@v4
+    - uses: conda-incubator/setup-miniconda@v3
       with:
-        python-version: '3.8'
-    - name: Add conda to system path
-      run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-        conda init
-        source ~/.bashrc
-    - name: Install dependencies
-      run: |
-        conda env update --file environment.yml --name fastapi
-        conda install -c conda-forge pytest=7.2.1
-        conda install flake8
+        activate-environment: anaconda-client-env
+        environment-file: etc/example-environment.yml
+        python-version: 3.5
+        condarc-file: etc/example-condarc.yml
+        auto-activate-base: false
+    - run: |
+        conda info
+        conda list
     - name: Test with pytest
       run: |
         pytest
     - name: Lint with flake8
       run: |
+        conda install flake8
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
