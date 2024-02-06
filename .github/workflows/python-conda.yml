@@ -21,14 +21,18 @@ jobs:
     - name: Install dependencies
       run: |
         conda env update --file environment.yml --name fastapi
-        conda install -c conda-forge scikit-learn
-        conda install -c conda-forge pytest=7.2.1
+    - name: Check Conda environment
+      run: |
+        conda activate fastapi
+        conda list
     - name: Test with pytest
       run: |
+        conda activate fastapi
         conda install -c conda-forge pytest=7.2.1
         pytest
     - name: Lint with flake8
       run: |
+        conda activate fastapi
         conda install flake8
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
