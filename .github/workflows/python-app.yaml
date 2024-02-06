@@ -42,7 +42,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        conda install flake8 pytest
+        conda install -c conda-forge pytest flake8
         
     - name: Run Flake8
       run: |
