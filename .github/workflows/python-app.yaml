@@ -46,10 +46,10 @@ jobs:
 
     - name: Run PyTest
       run: |
-        python -m pytest
+        conda -m pytest
       env:
         CI: true
 
     - name: Run Flake8
       run: |
-        python -m flake8
+        conda -m flake8
