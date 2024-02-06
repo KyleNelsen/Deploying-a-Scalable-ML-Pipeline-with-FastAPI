@@ -43,7 +43,6 @@ jobs:
     - name: Install dependencies
       run: |
         conda install pytest flake8 
-        conda install colorama==0.4.4
 
     - name: Run PyTest
       run: |
