@@ -22,6 +22,7 @@ jobs:
       run: |
         conda env update --file environment.yml --name fastapi
         conda install -c conda-forge scikit-learn
+        conda install -c conda-forge pytest=7.2.1
     - name: Test with pytest
       run: |
         conda install -c conda-forge pytest=7.2.1
