@@ -42,7 +42,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        conda install pytest flake8 
+        conda install -c conda-forge pytest flake8 colorama
 
     - name: Run PyTest
       run: |
