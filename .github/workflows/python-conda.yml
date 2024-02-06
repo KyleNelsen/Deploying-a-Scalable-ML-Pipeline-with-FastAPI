@@ -3,18 +3,18 @@ name: Python Package using Conda
 on: [push]
 
 jobs:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    steps:
-      - uses: conda-incubator/setup-miniconda@v3
-        with:
-          activate-environment: fastapi
-          auto-update-conda: true
-          python-version: "3.8"
-      - name: Conda info
-        shell: bash -el {0}
-        run: conda info
-      - name: Conda list
-        shell: pwsh
-        run: conda list
+  runs-on: ubuntu-latest
+  strategy:
+    fail-fast: false
+  steps:
+    - uses: conda-incubator/setup-miniconda@v3
+      with:
+        activate-environment: fastapi
+        auto-update-conda: true
+        python-version: "3.8"
+    - name: Conda info
+      shell: bash -el {0}
+      run: conda info
+    - name: Conda list
+      shell: pwsh
+      run: conda list
