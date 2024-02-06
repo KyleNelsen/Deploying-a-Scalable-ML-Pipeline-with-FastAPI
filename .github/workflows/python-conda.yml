@@ -3,29 +3,23 @@ name: Python Package using Conda
 on: [push]
 
 jobs:
-  build-linux:
-    runs-on: ubuntu-latest
+  example-1:
+    name: Ex1 (${{ matrix.python-version }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     strategy:
-      max-parallel: 5
       fail-fast: false
-
+      matrix:
+        os: "ubuntu-latest"
+        python-version: "3.8"
     steps:
-      - uses: actions/checkout@v4
       - uses: conda-incubator/setup-miniconda@v3
         with:
-          activate-environment: fastapi
-          environment-file: environment.yml
-          python-version: 3.8
-          auto-activate-base: false
-      - run: |
-          conda info
-          conda list
-      - name: Test with pytest
-        run: |
-          conda install pytest
-          pytest
-      - name: Lint with flake8
-        run: |
-          conda install flake8
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        activate-environment: fastapi
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+      - name: Conda info
+        shell: bash -el {0}
+        run: conda info
+      - name: Conda list
+        shell: pwsh
+        run: conda list
