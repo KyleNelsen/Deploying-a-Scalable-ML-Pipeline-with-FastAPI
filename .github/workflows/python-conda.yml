@@ -23,7 +23,7 @@ jobs:
         conda env update --file environment.yml --name fastapi
     - name: Test with pytest
       run: |
-        conda install pytest=7.2.1
+        conda install -c conda-forge pytest=7.2.1
         pytest
     - name: Lint with flake8
       run: |
