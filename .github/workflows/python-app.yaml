@@ -31,11 +31,11 @@ jobs:
         conda config --set always_yes yes --set changeps1 no
         conda update -q conda
 
-    - name: Initialize Conda
-      run: conda init
-      
     - name: Create Conda environment
       run: conda env create -f environment.yml
+
+    - name: Initialize Conda
+      run: conda init
 
     - name: Activate Conda environment
       run: conda activate fastapi
