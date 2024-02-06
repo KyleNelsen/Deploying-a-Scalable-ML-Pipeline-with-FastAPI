@@ -36,7 +36,7 @@ jobs:
 
     - name: Initialize and Activate Conda environment
       run: |
-        conda init bash
+        conda init
         conda activate fastapi
 
     - name: Run PyTest
