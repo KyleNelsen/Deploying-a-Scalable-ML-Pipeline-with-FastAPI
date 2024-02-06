@@ -34,11 +34,10 @@ jobs:
     - name: Create Conda environment
       run: conda env create -f environment.yml
 
-    - name: Initialize Conda
-      run: conda init bash
-
-    - name: Activate Conda environment
-      run: conda activate fastapi
+    - name: Initialize and Activate Conda environment
+      run: |
+        conda init bash
+        conda activate fastapi
 
     - name: Run PyTest
       run: |
