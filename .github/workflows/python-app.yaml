@@ -43,7 +43,7 @@ jobs:
     - name: Install dependencies
       run: |
         conda install flake8
-        conda install --pre -U -i http://devpi.net/hpk/dev/+simple/ pytest
+        conda install http://devpi.net/hpk/dev/+simple/ pytest
 
     - name: Run PyTest
       run: |
