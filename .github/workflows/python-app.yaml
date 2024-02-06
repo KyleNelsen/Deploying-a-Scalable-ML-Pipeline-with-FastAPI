@@ -46,6 +46,8 @@ jobs:
 
     - name: Run PyTest
       run: |
+        conda init bash
+        eval "$(conda shell.bash hook)"
         conda activate fastapi
         pytest
       env:
@@ -53,4 +55,7 @@ jobs:
 
     - name: Run Flake8
       run: |
+        conda init bash
+        eval "$(conda shell.bash hook)"
+        conda activate fastapi
         flake8
