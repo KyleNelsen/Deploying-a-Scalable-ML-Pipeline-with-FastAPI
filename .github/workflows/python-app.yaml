@@ -29,7 +29,7 @@ jobs:
         export PATH="$HOME/miniconda/bin:$PATH"
         hash -r
         conda config --set always_yes yes --set changeps1 no
-        conda update -q conda
+        conda update -q anaconda
 
     - name: Create Conda environment
       run: conda env create -f environment.yml
