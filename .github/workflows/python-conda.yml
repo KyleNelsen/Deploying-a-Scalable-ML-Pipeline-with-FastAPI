@@ -3,20 +3,15 @@ name: Python Package using Conda
 on: [push]
 
 jobs:
-  example-1:
-    name: Ex1 (${{ matrix.python-version }}, ${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        os: "ubuntu-latest"
-        python-version: "3.8"
     steps:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           activate-environment: fastapi
           auto-update-conda: true
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.8"
       - name: Conda info
         shell: bash -el {0}
         run: conda info
