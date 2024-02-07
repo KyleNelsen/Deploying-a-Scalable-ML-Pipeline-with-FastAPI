@@ -12,6 +12,5 @@ dependencies:
   - fastapi=0.63.0
   - uvicorn=0.20.0
   - pip=20.3.3
-  - git=2.30.2
   - pip:
     - git+https://github.com/benoitc/gunicorn
