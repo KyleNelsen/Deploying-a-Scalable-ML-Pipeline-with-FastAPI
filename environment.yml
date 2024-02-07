@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
   - python=3.8
-  - numpy=1.24.1
+  - numpy=1.21.3
   - pandas=1.5.3
   - scikit-learn=1.0.2
   - pytest=7.2.1
@@ -13,7 +13,7 @@ dependencies:
   - uvicorn=0.20.0
   - pip=20.3.3
   - git=2.30.2
-  - libmamba=1.15.0  # Updated to a version compatible with python 3.8
-  - python_abi=3.8.*  # Added python_abi to ensure compatibility with Python 3.8
+  - libmamba=0.16.1
+  - python_abi=3.8.*
   - pip:
     - git+https://github.com/benoitc/gunicorn
