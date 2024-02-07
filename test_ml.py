@@ -1,4 +1,4 @@
-import pytest
+import pytest  # noqa: F401
 # TODO: add necessary import
 from ml.model import compute_model_metrics
 from train_model import model, y_test, preds, train, test
